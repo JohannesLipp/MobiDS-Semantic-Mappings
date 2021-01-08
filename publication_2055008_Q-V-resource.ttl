@@ -1,0 +1,56 @@
+@prefix dbpedia: <http://dbpedia.org/ontology/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix map: <https://w3id.org/mobids/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://w3id.org/mobids/resource/2055008> a ids:DataResource;
+  ids:accrualPeriodicity "1 min";
+  ids:description "Description placeholder"@de;
+  ids:offer _:2055008ContractOffer .
+
+_:2055008ContractOffer a ids:ContractOffer;
+  ids:contractDocument "https://service.mdm-portal.de/mdm-portal-application/downloadContractFile.do?pubId=2055008"^^xsd:anyURI;
+  ids:permission _:2055008Permission .
+
+_:2055008Permission ids:action "idsc:USE";
+  ids:targetArtifact _:2055008Artifact .
+
+_:2055008Artifact a ids:Artifact;
+  ids:creationDate "2020-03-19" .
+
+<http://w3id.org/mobids/resource/2055008> ids:publisher "http://www.mobil.hessen.de"^^xsd:anyURI;
+  ids:representation _:2055008Representation .
+
+_:2055008Representation a ids:DataRepresentation;
+  ids:instance _:2055008Artifact;
+  ids:mediaType "XML" .
+
+<http://w3id.org/mobids/resource/2055008> ids:sovereign "http://www.mobil.hessen.de"^^xsd:anyURI;
+  ids:spatialCoverage _:2055008NutsLocation .
+
+_:2055008NutsLocation a map:NutsLocation;
+  dbpedia:nutsCode "DE7";
+  rdfs:label "Hessen" .
+
+<http://w3id.org/mobids/resource/2055008> ids:temporalCoverage _:2055008Interval .
+
+_:2055008Interval a ids:Interval;
+  ids:begin _:2055008BeginInstant .
+
+_:2055008BeginInstant a ids:Instant;
+  ids:dateTime "2013-06-01T00:00:00.000+02:00"^^xsd:dateTimeStamp .
+
+_:2055008Interval ids:end _:2055008EndInstant .
+
+_:2055008EndInstant a ids:Instant;
+  ids:dateTime ""^^xsd:dateTimeStamp .
+
+<http://w3id.org/mobids/resource/2055008> ids:title "q- und v-Daten von Messstellen im hessischen BAB und Bundesstra�ennetz"@de;
+  map:DataCategory "Echtzeit-Verkehrsdaten";
+  map:DataCategoryDetail "Geschwindigkeiten", "Verkehrsaufkommen";
+  map:geoReferenceMethod "ALERT-C (LCL)", "Geokoordinaten ETRS89";
+  map:mdmBrokering "true";
+  map:roadNetworkCoverage "Autobahnen", "Bundes- und Landesstra�en";
+  map:transportMode "Lkw", "Pkw" .

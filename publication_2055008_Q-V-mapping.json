@@ -1,0 +1,161 @@
+@prefix : <http://w3id.org/mobids/rules/> .
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
+@prefix map: <https://w3id.org/mobids/>.
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/>.
+@prefix idsc: <https://w3id.org/idsa/code/>.
+@prefix mobids: <https://w3id.org/mobids/>.
+@prefix dbpedia: <http://dbpedia.org/ontology/>.
+
+:Source a rml:LogicalSource;
+  rml:source "publication_2055008_Q-V.json";  rml:referenceFormulation ql:JSONPath;
+  rml:iterator "$".
+
+:ResourceMapping a rr:TriplesMap;
+  rml:logicalSource :Source.
+
+:ResourceMapping rr:subjectMap [
+  rr:template "http://w3id.org/mobids/resource/{Resource}";
+  rr:class ids:DataResource
+].
+
+:ResourceMapping rr:predicateObjectMap
+  [rr:predicate ids:title; rr:objectMap [rml:reference "Name"; rr:language "de"]],
+  [rr:predicate ids:description; rr:objectMap [rr:constant "Description placeholder"; rr:language "de"]],
+  [rr:predicate ids:publisher; rr:objectMap [rml:reference "Supplier.Homepage"; rr:datatype xsd:anyURI]],
+  [rr:predicate ids:sovereign; rr:objectMap [rml:reference "Supplier.Homepage"; rr:datatype xsd:anyURI]],
+  [rr:predicate ids:temporalCoverage; rr:objectMap [rr:template "{Resource}Interval"; rr:termType rr:BlankNode]],
+  [rr:predicate mobids:DataCategory; rr:objectMap [rml:reference "DataCategory"]],
+  [rr:predicate mobids:DataCategoryDetail; rr:objectMap [rml:reference "DataCategoryDetail"]],
+  [rr:predicate mobids:transportMode; rr:objectMap [rml:reference "TransportMode"]],
+  [rr:predicate ids:accrualPeriodicity; rr:objectMap [rml:reference "UpdateInterval"]],
+  [rr:predicate mobids:mdmBrokering; rr:objectMap [rml:reference "MdmBrokering"]],
+  [rr:predicate ids:offer; rr:objectMap [rr:template "{Resource}ContractOffer"; rr:termType rr:BlankNode]],
+  [rr:predicate ids:spatialCoverage; rr:objectMap [rr:template "{Resource}NutsLocation"; rr:termType rr:BlankNode]],
+  [rr:predicate mobids:roadNetworkCoverage; rr:objectMap [rml:reference "RoadNetworkCoverage.RoadNetworkCoverage"]],
+  [rr:predicate mobids:geoReferenceMethod; rr:objectMap [rml:reference "GeoReferenceMethod"]],
+  [rr:predicate ids:representation; rr:objectMap [rr:template "{Resource}Representation"; rr:termType rr:BlankNode]],
+  [rr:predicate mobids:dataModel; rr:objectMap [rml:reference "AccessInformation.DataFormatModel"]],
+  [rr:predicate ids:dataTypeSchema; rr:objectMap [rml:reference "AccessInformation.SchemaDefinitionFileUrl"]]
+.
+
+
+
+:IntervalMap a rr:TriplesMap;
+  rml:logicalSource :Source.
+
+:IntervalMap rr:subjectMap [
+  rr:template "{Resource}Interval";
+  rr:termType rr:BlankNode;
+  rr:class ids:Interval
+].
+
+:IntervalMap rr:predicateObjectMap
+  [rr:predicate ids:begin; rr:objectMap [rr:template "{Resource}BeginInstant"; rr:termType rr:BlankNode]],
+  [rr:predicate ids:end; rr:objectMap [rr:template "{Resource}EndInstant"; rr:termType rr:BlankNode]]
+.
+
+
+:BeginInstantMap a rr:TriplesMap;
+  rml:logicalSource :Source.
+
+:BeginInstantMap rr:subjectMap [
+  rr:template "{Resource}BeginInstant";
+  rr:termType rr:BlankNode;
+  rr:class ids:Instant
+].
+
+:BeginInstantMap rr:predicateObjectMap
+  [rr:predicate ids:dateTime; rr:objectMap [rml:reference "ValidFrom"; rr:datatype xsd:dateTimeStamp]]
+.
+
+
+:EndInstantMap a rr:TriplesMap;
+  rml:logicalSource :Source.
+
+:EndInstantMap rr:subjectMap [
+  rr:template "{Resource}EndInstant";
+  rr:termType rr:BlankNode;
+  rr:class ids:Instant
+].
+
+:EndInstantMap rr:predicateObjectMap
+  [rr:predicate ids:dateTime; rr:objectMap [rml:reference "ValidUntil"; rr:datatype xsd:dateTimeStamp]]
+.
+
+
+:ContractOfferMap a rr:TriplesMap;
+  rml:logicalSource :Source.
+
+:ContractOfferMap rr:subjectMap [
+  rr:template "{Resource}ContractOffer";
+  rr:termType rr:BlankNode;
+  rr:class ids:ContractOffer
+].
+
+:ContractOfferMap rr:predicateObjectMap
+  [rr:predicate ids:contractDocument; rr:objectMap [rml:reference "ModelContract"; rr:datatype xsd:anyURI]],
+  [rr:predicate ids:permission; rr:objectMap [rr:template "{Resource}Permission"; rr:termType rr:BlankNode]]
+.
+
+
+:PermissionMap a rr:TriplesMap;
+  rml:logicalSource :Source.
+
+:PermissionMap rr:subjectMap [
+  rr:template "{Resource}Permission";
+  rr:termType rr:BlankNode
+].
+
+:PermissionMap rr:predicateObjectMap
+  [rr:predicate ids:targetArtifact; rr:objectMap [rr:template "{Resource}Artifact"; rr:termType rr:BlankNode]],
+  [rr:predicate ids:action; rr:objectMap [rr:constant "idsc:USE"]]
+.
+
+
+:ArtifactMap a rr:TriplesMap;
+  rml:logicalSource :Source.
+
+:ArtifactMap rr:subjectMap [
+  rr:template "{Resource}Artifact";
+  rr:termType rr:BlankNode;
+  rr:class ids:Artifact
+].
+
+:ArtifactMap rr:predicateObjectMap
+  [rr:predicate ids:creationDate; rr:objectMap [rr:constant "2020-03-19"]]
+.
+
+
+:NutsMap a rr:TriplesMap;
+  rml:logicalSource :Source.
+
+:NutsMap rr:subjectMap [
+  rr:template "{Resource}NutsLocation";
+  rr:termType rr:BlankNode;
+  rr:class mobids:NutsLocation
+].
+
+:NutsMap rr:predicateObjectMap
+  [rr:predicate rdfs:label; rr:objectMap [rml:reference "GeographicalCoverage[0].NutsName"]],
+  [rr:predicate dbpedia:nutsCode; rr:objectMap [rml:reference "GeographicalCoverage[0].NutsCode"]]
+.
+
+
+:RepresentationMap a rr:TriplesMap;
+  rml:logicalSource :Source.
+
+:RepresentationMap rr:subjectMap [
+  rr:template "{Resource}Representation";
+  rr:termType rr:BlankNode;
+  rr:class ids:DataRepresentation
+].
+
+:RepresentationMap rr:predicateObjectMap
+  [rr:predicate ids:mediaType; rr:objectMap [rml:reference "AccessInformation[0].DataFormatSyntax"]],
+  [rr:predicate ids:instance; rr:objectMap [rr:template "{Resource}Artifact"; rr:termType rr:BlankNode]]
+.

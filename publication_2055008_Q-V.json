@@ -1,0 +1,50 @@
+{
+  "Resource": "2055008",
+  "Name": "q- und v-Daten von Messstellen im hessischen BAB und Bundesstraßennetz",
+  "Description": "Verkehrsmengen (q) und Geschwindigkeiten (v) von rd. 2.500 Messquerschnitten im hessischen BAB und Bundesstraßennetz\r\n\r\nDer Bezug der Daten unterliegt den Bedingungen der \"Verordnung zur Festlegung der Nutzungsbestimmungen für die Bereitstellung von Geodaten des Bundes\" (GeoNutzV, http:\/\/www.gesetze-im-internet.de\/geonutzv\/, oder Download unter \"Vertragsentwurf\"). Mit der Subskription einer Datenpublikation erkennen Sie die Nutzungsbedingungen an.\r\n\r\nBezüglich des Quellenhinweises gilt folgende Regelung:\r\nJeder Nutzer hat den Quellenvermerk zu allen Daten erkennbar und soweit möglich in optischem Zusammenhang mit den Daten zu platzieren. Sollte ein optischer Zusammenhang nicht möglich sein, ist der Quellenvermerk an geeigneter Stelle (z.B. in Verbindung mit allgemeinen Informationen zum Diensteangebot) zu platzieren. Bei statischen Daten ist das Jahr des Bezugs der Daten anzugeben. Veränderungen, Bearbeitungen oder sonstige Abwandlungen*) sind mit einem Veränderungshinweis im Quellenvermerk zu versehen.\r\n \r\nQuellenvermerk und Veränderungshinweis sind wie folgt zu gestalten:\r\nBMVI \/ MDM \r\nBMVI \/ MDM (Daten verändert)\r\n\r\nBei statischen Daten analog:\r\nBMVI \/ MDM 2015\r\nBMVI \/ MDM 2015 (Daten verändert)\r\n\r\nBei der Darstellung auf einer Webseite ist der Quellenvermerk mit der URL \"http:\/\/www.mdm-portal.de\/\" zu verlinken.\r\n\r\n*) Unter Veränderungen, Bearbeitungen oder sonstige Abwandlungen werden Ergänzungen und Verschneidungen mit anderen Daten sowie Aggregierungen (z.B. Zusammenfassungen, Bildung von Mittelwerten usw.) verstanden. Nicht relevant sind individuelle Visualisierungen der Daten.",
+  "ValidFrom": "2013-06-01T00:00:00.000+02:00",
+  "ValidUntil": "",
+  "MdmBrokering": true,
+  "Owner": "",
+  "DataCategory": "Echtzeit-Verkehrsdaten",
+  "DataCategoryDetail": [
+    "Verkehrsaufkommen",
+    "Geschwindigkeiten"
+  ],
+  "TransportMode": [
+    "Pkw",
+    "Lkw"
+  ],
+  "UpdateInterval": "1 min",
+  "ConditionsOfUse": "Lizensiert, kostenfrei",
+  "ModelContract": "https:\/\/service.mdm-portal.de\/mdm-portal-application\/downloadContractFile.do?pubId=2055008",
+  "GeographicalCoverage": [{
+    "NutsCode": "DE7",
+    "NutsName": "Hessen"
+  }],
+  "RoadNetworkCoverage": {
+    "RoadNetworkCoverage": [
+      "Autobahnen",
+      "Bundes- und Landesstraßen"
+    ],
+    "AdditionalDescription": ""
+  },
+  "GeoReferenceMethod": [
+    "ALERT-C (LCL)",
+    "Geokoordinaten ETRS89"
+  ],
+  "AccessInformation": [{
+    "DataFormatSyntax": "XML",
+    "DataFormatModel": "DATEX II ",
+    "AccessProtocol": "HTTP\/HTTPS-SOAP",
+    "AccessUrl": "",
+    "DataFormatDescription": "",
+    "SchemaDefinitionFileUrl": "http:\/\/bast.s3.amazonaws.com\/schema\/1445524392781\/MDM-Profile_MeasuredData.xsd"
+  }],
+  "DataValidity": "",
+  "QsText": "",
+  "Supplier": {
+    "Name": "Hessen Mobil - Straßen- und Verkehrsmanagement",
+    "Homepage": "http:\/\/www.mobil.hessen.de"
+  }
+}
